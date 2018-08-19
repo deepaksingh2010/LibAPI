@@ -1,0 +1,61 @@
+﻿<div>
+    <h1>Library Users</h1>
+    <form name="LibraryUser" ng-submit="SaveLibraryUser(data)">
+        <div class="form-group row">
+            <label for="example-text-input" class="col-2 col-form-label">Name</label>
+            <div class="col-10">
+                <input class="form-control" ng-model="data.Name" watermark-text="Enter Name" required type="text" value="Artisanal kale" id="example-text-input">
+
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="example-text-input" class="col-2 col-form-label">Address</label>
+            <div class="col-10">
+                <input class="form-control" ng-model="data.Address" watermark-text="Enter Address" required type="text" value="Artisanal kale" id="example-text-input">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="example-text-input" class="col-2 col-form-label">Email ID</label>
+            <div class="col-10">
+                <input class="form-control" ng-model="data.EmailID" watermark-text="Enter Email ID" required type="email" value="Artisanal kale" id="example-text-input">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="example-number-input" class="col-2 col-form-label">PhoneNumber</label>
+            <div class="col-10">
+                <input class="form-control" ng-model="data.PhoneNumber" required type="number" min="10000000000" value="" id="example-number-input">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="ReferenceBY">Reference BY</label>
+            <select class="form-control" ng-model="data.ReferencedID" ng-options="LibraryUser.LibraryUserID as LibraryUser.Name for LibraryUser in LibraryUserDetails" id="ReferenceBY"></select>
+        </div>
+        <button type="submit" ng-disabled="LibraryUser.$invalid" class="btn btn-primary">Submit</button>
+    </form>
+    <div class="table-responsive">
+        <table class="table col-sm-12 table-bordered table-striped table-condensed cf">
+            <thead class="cf">
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Reference BY</th>
+                    <th># Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="LibraryUser in LibraryUserDetails">
+                    <td data-title=" ">{{LibraryUser.LibraryUserID}}</td>
+                    <td data-title="Name">{{LibraryUser.Name}}</td>
+                    <td data-title="Address">{{LibraryUser.Address}}</td>
+                    <td data-title="Email">{{LibraryUser.EmailID}}</td>
+                    <td data-title="Phone Number">{{LibraryUser.PhoneNumber}}</td>
+                    <td data-title="Reference BY">{{LibraryUser.ReferenceBY.Name}}</td>
+                    <td data-title="Delete Library User"><button ng-click="DeleteLibraryUser(LibraryUser)" type="submit" class="btn btn-primary">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

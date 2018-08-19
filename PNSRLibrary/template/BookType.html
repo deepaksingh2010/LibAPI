@@ -1,0 +1,30 @@
+﻿<div>
+    <h1>Book Type</h1>
+    <form name="BookType" ng-submit="SaveBookType(data)">
+        <div class="form-group row">
+            <label for="example-text-input" class="col-2 col-form-label">Book Type Name</label>
+            <div class="col-10">
+                <input class="form-control" ng-model="data.BookTypeName" watermark-text="Book Type Name" required type="text" value="Artisanal kale" id="example-text-input">
+            </div>
+        </div>
+        <button type="submit" ng-disabled="BookType.$invalid" class="btn btn-primary">Submit</button>
+    </form>
+    <div class="table-responsive">
+        <table class="table col-sm-12 table-bordered table-striped table-condensed cf">
+            <thead class="cf">
+                <tr>
+                    <th>#</th>
+                    <th>BookType Name</th>
+                    <th># Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="BookType in BookTypeDetails">
+                    <td data-title=" ">{{BookType.BookTypeID}}</td>
+                    <td data-title="MemberShip Status">{{BookType.BookTypeName}}</td>
+                    <td data-title="Delete Membership Status"><button ng-click="DeleteBookType(BookType)" type="submit" class="btn btn-primary">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

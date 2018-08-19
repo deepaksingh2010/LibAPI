@@ -1,0 +1,95 @@
+﻿<div>
+    <h1>Books </h1>
+    <form name="Book" ng-submit="SaveBook(data)">
+        <div class="form-group row">
+            <label for="BookName" class="col-2 col-form-label">Book Name</label>
+            <div class="col-10">
+                <input class="form-control" ng-model="data.BookName" watermark-text="Enter Book Name"
+                       required type="text" value="Artisanal kale" id="BookName">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="RegistrationNumber" class="col-2 col-form-label">Registration Number</label>
+            <div class="col-10">
+                <input class="form-control" ng-model="data.RegistrationNumber" min="1000" step="1" required type="number" value="" id="RegistrationNumber">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="Author" class="col-2 col-form-label">Author Name</label>
+            <div class="col-10">
+                <input class="form-control" ng-model="data.Author" watermark-text="Enter Author Name"
+                       required type="text" value="Artisanal kale" id="Author">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="BooksCategory">Books Category</label>
+            <select class="form-control" ng-model="data.CategoryID"
+                    ng-options="BooksCategory.BooksCategoryID as BooksCategory.Category for BooksCategory in BooksCategoryDetails" id="BooksCategory"></select>
+        </div>
+        <div class="form-group row">
+            <label for="BookType">Book Type</label>
+            <select class="form-control" ng-model="data.BookTypeID"
+                    ng-options="BookType.BookTypeID as BookType.BookTypeName for BookType in BookTypeDetails" id="BookType"></select>
+        </div>
+        <div class="form-group row">
+            <label for="LateFeeDetailID">Late Fee Detail</label>
+            <select class="form-control" ng-model="data.LateFeeDetailID"
+                    ng-options="LateFeeDetail.LateFeeDetailID as LateFeeDetail.Description for LateFeeDetail in LateFeeDetails" id="LateFeeDetailID"></select>
+        </div>
+        <div class="form-group row">
+            <label for="Price" class="col-2 col-form-label">Price</label>
+            <div class="col-10">
+                <input class="form-control" ng-model="data.Price" required type="number" value="" id="Price">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="SourceOfBook" class="col-2 col-form-label">Source Of Book</label>
+            <div class="col-10">
+                <input class="form-control" ng-model="data.SourceOfBook" watermark-text="Enter Source"
+                       required type="text" value="Artisanal kale" id="SourceOfBook">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="Description" class="col-2 col-form-label">Description</label>
+            <div class="col-10">
+                <input class="form-control" ng-model="data.Description" watermark-text="Enter Source"
+                       required type="text" value="Artisanal kale" id="Description">
+            </div>
+        </div>
+        <button type="submit" ng-disabled="Book.$invalid" class="btn btn-primary">Submit</button>
+    </form>
+    <div class="table-responsive">
+        <table class="table col-sm-12 table-bordered table-striped table-condensed cf">
+            <thead class="cf">
+                <tr>
+                    <th>#</th>
+                    <th>Book Name</th>
+                    <th>Registration Number</th>
+                    <th>Books Category</th>
+                    <th>Author</th>
+                    <th>Book Type</th>
+                    <th>Price</th>
+                    <th>Source Of Book</th>
+                    <th>Description</th>
+                    <th>Late Fee Details</th>
+                    <th># Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="Book in Books">
+                    <td data-title=" ">{{Book.BookID}}</td>
+                    <td data-title="Book Name">{{Book.BookName}}</td>
+                    <td data-title="Registration Number">{{Book.RegistrationNumber}}</td>
+                    <td data-title="Books Category">{{Book.BooksCategory.Category}}</td>
+                    <td data-title="Author">{{Book.Author}}</td>
+                    <td data-title="Book Type">{{Book.BookType.BookTypeName}}</td>
+                    <td data-title="Price">{{Book.Price}}</td>
+                    <td data-title="Source Of Book">{{Book.SourceOfBook}}</td>
+                    <td data-title="Description">{{Book.Description}}</td>
+                    <td data-title="Late Fee Details">{{Book.LateFeeDetails.Description}}</td>
+                    <td data-title="Delete Book"><button ng-click="DeleteBook(Book)" type="submit" class="btn btn-primary">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

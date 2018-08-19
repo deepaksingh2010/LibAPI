@@ -1,0 +1,38 @@
+﻿<div>
+    <form name="MemberShipType" ng-submit="SaveMemberShipType(data)">
+        <div class="form-group row">
+            <label for="example-text-input" class="col-2 col-form-label">Member Ship Type</label>
+            <div class="col-10">
+                <input class="form-control" ng-model="data.MemberShipTypeName" watermark-text="Membership Type" required type="text" value="Artisanal kale" id="example-text-input">
+                
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="example-number-input" class="col-2 col-form-label">Max Issue Days</label>
+            <div class="col-10">
+                <input class="form-control" ng-model="data.MaxIssueDays"  required type="number" min="1" step="1" value="" id="example-number-input">                
+            </div>
+        </div>
+        <button type="submit" ng-disabled="MemberShipType.$invalid" class="btn btn-primary">Submit</button>
+    </form>
+    <div class="table-responsive">
+        <table class="table col-sm-12 table-bordered table-striped table-condensed cf">
+            <thead class="cf">
+                <tr>
+                    <th>#</th>
+                    <th>Membership Type</th>
+                    <th>Max Issue(Days)</th>
+                    <th># Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="Membershiptype in Memberships">
+                    <td data-title=" ">{{Membershiptype.MembershipTypeID}}</td>
+                    <td data-title="Membership Type">{{Membershiptype.MembershipTypeName}}</td>
+                    <td data-title="Max Issue(Days)">{{Membershiptype.MaxIssueDays}}</td>
+                    <td data-title="Delete MemberShip Type"><button ng-click="DeleteMemberShipType(Membershiptype)" type="submit" class="btn btn-primary">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

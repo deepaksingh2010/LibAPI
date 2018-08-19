@@ -1,0 +1,75 @@
+﻿<div>
+    <h1>Memeber Ship</h1>
+    <form name="LibraryUser" ng-submit="SaveLibraryUser(data)">
+        <div class="form-group row">
+            <label for="LibraryUser">Library User</label>
+            <select  class="form-control" ng-model="data.UserID"
+                    ng-options="LibraryUser.LibraryUserID as LibraryUser.Name for LibraryUser in LibraryUserDetails" id="LibraryUser"></select>
+        </div>
+        <div class="form-group row">
+            <label for="MemberShipStatus">Membership Status</label>
+            <select class="form-control" ng-model="data.MemberShipStatusID"
+                    ng-options="Membershiptype.MembershipTypeID as Membershiptype.MembershipTypeName for Membershiptype in Memberships" id="MemberShipStatus"></select>
+        </div>
+        <div class="form-group row">
+            <label for="MemberShipType">Membership Status</label>
+            <select class="form-control" ng-model="data.LibraryMemberShipTypeID"
+                    ng-options="MemberShipStatus.MembershipstatusID as MemberShipStatus.StatusName for MemberShipStatus in MemberShipStatusesDetails" id="MemberShipType"></select>
+        </div>
+        <div class="form-group row">
+            <label for="FeeCollected" class="col-2 col-form-label">FeeCollected</label>
+            <div class="col-10">
+                <input class="form-control" ng-model="data.FeeCollected" required type="number" value="" id="FeeCollected">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="CreatedOn" class="col-2 col-form-label">Created On</label>
+            <div class="col-10">
+                <input class="form-control" ng-model="data.CreatedOn" type="date" value="2011-08-19" id="CreatedOn">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="PaidOn" class="col-2 col-form-label">Paid On</label>
+            <div class="col-10">
+                <input class="form-control" ng-model="data.PaidOn" type="date" value="2011-08-19" id="PaidOn">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="PaidTill" class="col-2 col-form-label">Paid Till</label>
+            <div class="col-10">
+                <input class="form-control" ng-model="data.PaidTill" type="date" value="2011-08-19" id="PaidTill">
+            </div>
+        </div>
+        <button type="submit" ng-disabled="LibraryUser.$invalid" class="btn btn-primary">Submit</button>
+    </form>
+    <div class="table-responsive">
+        <table class="table col-sm-12 table-bordered table-striped table-condensed cf">
+            <thead class="cf">
+                <tr>
+                    <th>#</th>
+                    <th>Library User</th>
+                    <th>Membership Status</th>
+                    <th>Membership Type</th>
+                    <th>Fee Collected</th>
+                    <th>Created On</th>
+                    <th>Paid On</th>
+                    <th>Paid Till</th>
+                    <th># Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="LibMemeberShip in LibMemeberShipDetails">
+                    <td data-title=" ">{{LibMemeberShip.LibMemberShipID}}</td>
+                    <td data-title="Library User">{{LibMemeberShip.LibraryUser.Name}}</td>
+                    <td data-title="Membership Status">{{LibMemeberShip.MemberShipStatus.StatusName}}</td>
+                    <td data-title="Membership Type">{{LibMemeberShip.MemberShipType.MembershipTypeName}}</td>
+                    <td data-title="Fee Collected">{{LibMemeberShip.FeeCollected}}</td>
+                    <td data-title="Created On">{{LibMemeberShip.CreatedOn}}</td>
+                    <td data-title="Paid On">{{LibMemeberShip.PaidOn}}</td>
+                    <td data-title="Paid Till">{{LibMemeberShip.PaidTill}}</td>
+                    <td data-title="Delete Librarry Memebership"><button ng-click="DeleteLibMemeberShip(LibMemeberShip)" type="submit" class="btn btn-primary">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

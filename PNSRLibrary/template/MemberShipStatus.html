@@ -1,0 +1,30 @@
+﻿<div>
+    <h1>Membership Status</h1>
+    <form name="MemberShipStatus" ng-submit="SaveMemberShipStatus(data)">
+        <div class="form-group row">
+            <label for="example-text-input" class="col-2 col-form-label">Membership Status</label>
+            <div class="col-10">
+                <input class="form-control" ng-model="data.StatusName" watermark-text="Membership Status Name" required type="text" value="Artisanal kale" id="example-text-input">
+            </div>
+        </div>
+        <button type="submit" ng-disabled="MemberShipStatus.$invalid" class="btn btn-primary">Submit</button>
+    </form>
+    <div class="table-responsive">
+        <table class="table col-sm-12 table-bordered table-striped table-condensed cf">
+            <thead class="cf">
+                <tr>
+                    <th>#</th>
+                    <th>MemberShip Status</th>
+                    <th># Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="MemberShipStatus in MemberShipStatusesDetails">
+                    <td data-title=" ">{{MemberShipStatus.MembershipstatusID}}</td>
+                    <td data-title="MemberShip Status">{{MemberShipStatus.StatusName}}</td>
+                    <td data-title="Delete Membership Status"><button ng-click="DeleteMemberShipStatus(MemberShipStatus)" type="submit" class="btn btn-primary">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

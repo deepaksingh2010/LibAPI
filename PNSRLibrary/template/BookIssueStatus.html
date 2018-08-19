@@ -1,0 +1,30 @@
+﻿<div>
+    <h1>Book Issue Status</h1>
+    <form name="BookIssueStatus" ng-submit="SaveBookIssueStatus(data)">
+        <div class="form-group row">
+            <label for="example-text-input" class="col-2 col-form-label">BookIssue Status Name</label>
+            <div class="col-10">
+                <input class="form-control" ng-model="data.BookIssueStatusName" watermark-text="Book Issue StatusName" required type="text" value="Artisanal kale" id="example-text-input">
+            </div>
+        </div>
+        <button type="submit" ng-disabled="BookIssueStatus.$invalid" class="btn btn-primary">Submit</button>
+    </form>
+    <div class="table-responsive">
+        <table class="table col-sm-12 table-bordered table-striped table-condensed cf">
+            <thead class="cf">
+                <tr>
+                    <th>#</th>
+                    <th>BookIssue Status Name</th>
+                    <th># Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="BookIssueStatus in BookIssueStatusDetails">
+                    <td data-title=" ">{{BookIssueStatus.BookIssueStatusID}}</td>
+                    <td data-title="BookIssue Status Name">{{BookIssueStatus.BookIssueStatusName}}</td>
+                    <td data-title="Delete Membership Status"><button ng-click="DeleteBookIssueStatus(BooksCategory)" type="submit" class="btn btn-primary">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

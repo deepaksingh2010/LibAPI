@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html ng-app="pnsrlibrary" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>PNSR Library App</title>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/font-awesome.css" rel="stylesheet" />
+    <link href="Content/Tables.css" rel="stylesheet" />
+    <script src="Scripts/jquery-3.1.1.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+    <script src="app.js"></script>
+    <script src="app/controller/MainController.js"></script>
+    <script src="app/controller/MembershipTypeController.js"></script>
+    <script src="app/services/serviceHeader.js"></script>
+    <script src="app/services/logService.js"></script>
+    <script src="app/controller/TheMainController.js"></script>
+    <script src="app/directive/watermarkText.js"></script>
+    <script src="app/controller/BookIssuedController.js"></script>
+    <script src="app/controller/BookIssueStatusController.js"></script>
+    <script src="app/controller/BooksCategoryController.js"></script>
+    <script src="app/controller/BooksController.js"></script>
+    <script src="app/controller/BookTypeController.js"></script>
+    <script src="app/controller/IssueTypeController.js"></script>
+    <script src="app/controller/LateFeeDetailController.js"></script>
+    <script src="app/controller/LibraryUserController.js"></script>
+    <script src="app/controller/MembershipStatusController.js"></script>
+    <script src="app/controller/MemeberShipController.js"></script>
+
+    <script src="http://localhost/app/controller/ESDController.js"></script>
+    <script src="app/services/getDataService.js"></script>
+</head>
+<body>
+    <nav ng-controller="MainContoller" class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" ng-click="toggleclick(check)" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Brand</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div ng-class="{collapse: check==true}" class="navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/TheMain" >Home <span class="sr-only">(current)</span></a></li>
+                    <li><a href="/MembershipType">Link</a></li>
+                    <li><a href="/ESD">ESD</a></li>
+                    <li class="dropdown">
+                        <a href="/" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/MemeberShip">Memeber Ship</a></li>
+                            <li><a href="/MemberShipStatus">Member Ship Status</a></li>
+                            <li><a href="/LibraryUser">Library Users</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="/LateFeeDetails">Late Fee Details</a></li>
+                            <li><a href="/BookType">Book Type</a></li>
+                            <li><a href="/IssueType">Issue Type</a></li>
+                            <li><a href="/BooksCategory">Books Category</a></li>
+                            <li><a href="/Books">Books</a></li>
+                            <li><a href="/BookIssueStatus">Book Issue Status</a></li>
+                            <li><a href="/BookIssued">Book Issued</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Link</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div class="container">
+       <div ng-view>this is main page</div>
+        <footer>
+            <div class="container">
+                <span class="text-muted">Place sticky footer content here.</span>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
